@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  width: fit-content;
+  padding: 10px 15px;
+  background-color: lightcoral;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.container:hover {
+  background-color: #a45656;
+  color: #FFFFFF;
+}

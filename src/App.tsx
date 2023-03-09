@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
+import useHover from "./custom-hooks/useHover";
 
 function App() {
+  const { hovered, ref } = useHover();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
+    <div ref={ref} className="container">
+      {hovered ? 'На меня навели мышку' : 'Наведи мышкой на меня'}
     </div>
   );
 }
