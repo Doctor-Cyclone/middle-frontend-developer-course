@@ -5,6 +5,7 @@ const useHover = () => {
 	const ref = useRef(null);
 
 	useEffect(() => {
+		console.log(1)
 			const element = ref.current! as HTMLDivElement;
 
 			if (element) {
@@ -16,7 +17,7 @@ const useHover = () => {
 					element.removeEventListener("mouseout", () => setHovered(false));
 				};
 			}
-		},[ref.current]);
+		},[]);
 
 	return { hovered, ref }
 }
