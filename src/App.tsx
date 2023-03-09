@@ -1,15 +1,24 @@
 import React from 'react';
 import './App.css';
+import useLocalStorage from './custom-hooks/useLocalStorage';
 
 function App() {
+  const [token, { setItem, removeItem }] = useLocalStorage('token', 'token');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
-    </div>
+    <>
+      <p>
+        Твой токен: { token }
+      </p>
+      <div>
+        <button onClick={() => setItem('token 2')}>
+          Задать токен
+        </button>
+        <button onClick={() => removeItem()}>
+          Удалить токен
+        </button>
+      </div>
+    </>
   );
 }
 
