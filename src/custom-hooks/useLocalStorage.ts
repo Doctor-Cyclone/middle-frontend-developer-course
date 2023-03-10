@@ -15,23 +15,23 @@ const getItem = <T>(initialData: T, key: string) => {
 }
 
 const useLocalStorage = <T>(initialData: T, key: string) => {
-	const [token, setToken] = useState(() => getItem(initialData, key));
+	const [data, setData] = useState(() => getItem(initialData, key));
 
 	useEffect(() => {
-		setToken(getItem(initialData, key));
+		setData(getItem(initialData, key));
 	}, [])
 
 	const setItem = <T>(newItem: T) => {
 		localStorage.setItem(key, JSON.stringify(newItem))
-		setToken(newItem);
+		setData(newItem);
 	}
 
 	const removeItem = () => {
 		localStorage.removeItem(key);
-		setToken('');
+		setData('');
 	}
 
-	return [token, {setItem, removeItem}];
+	return [data, {setItem, removeItem}];
 }
 
 export default useLocalStorage;

@@ -3,12 +3,12 @@ import './App.css';
 import useLocalStorage from './custom-hooks/useLocalStorage';
 
 function App() {
-  const [token, { setItem, removeItem }] = useLocalStorage('token', 'token');
+  const [data, { setItem, removeItem }] = useLocalStorage('token', 'token');
 
   return (
     <>
       <p>
-        Твой токен: { token }
+        Твой токен: { data }
       </p>
       <div>
         <button onClick={() => setItem('token 2')}>
