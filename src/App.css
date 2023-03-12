@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  height: 2000px;
+}
+
+.text {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+}
+
+.button {
+  position: fixed;
+  top: 30px;
+}
