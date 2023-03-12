@@ -1,24 +1,14 @@
 import React from 'react';
 import './App.css';
-import useLocalStorage from './custom-hooks/useLocalStorage';
+import useHover from "./custom-hooks/useHover";
 
 function App() {
-  const [data, { setItem, removeItem }] = useLocalStorage('token', 'token');
+  const { hovered, ref } = useHover();
 
   return (
-    <>
-      <p>
-        Твой токен: { data }
-      </p>
-      <div>
-        <button onClick={() => setItem('token 2')}>
-          Задать токен
-        </button>
-        <button onClick={() => removeItem()}>
-          Удалить токен
-        </button>
-      </div>
-    </>
+    <div ref={ref} className="container">
+      {hovered ? 'На меня навели мышку' : 'Наведи мышкой на меня'}
+    </div>
   );
 }
 

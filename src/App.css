@@ -35,16 +35,25 @@
 }
 
 .container {
-  height: 2000px;
+  width: fit-content;
+  padding: 10px 15px;
+  background-color: lightcoral;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.container:hover {
+  background-color: #a45656;
+  color: #FFFFFF;
+}
+
+.button {
+  position: fixed;
+  top: 30px;
 }
 
 .text {
   margin: 0;
   padding: 0;
   position: fixed;
-}
-
-.button {
-  position: fixed;
-  top: 30px;
 }
