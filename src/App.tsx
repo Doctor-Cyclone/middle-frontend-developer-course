@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import useHover from "./custom-hooks/useHover";
+import useViewportSize from './custom-hooks/useViewportSize';
 
-function App() {
-  const { hovered, ref } = useHover();
+const App = () => {
+  const { height, width } = useViewportSize();
 
   return (
-    <div ref={ref} className="container">
-      {hovered ? 'На меня навели мышку' : 'Наведи мышкой на меня'}
-    </div>
+    <>
+      Width: {width}, height: {height}
+    </>
   );
 }
 
