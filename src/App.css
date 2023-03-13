@@ -16,6 +16,10 @@
   transition: all 0.1s linear;
 }
 
+
+.App-header {
+  min-height: 100vh;
+
 .button button:hover {
   transform: scale(1.1);
   transition: all 0.1s linear;
@@ -25,7 +29,23 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  font-size: calc(10px + 2vmin);
 }
+
+.App-header_dark {
+  background-color: #282c34;
+  color: white;
+}
+
+.App-header_light {
+  background-color: #9cb4cb;
+  color: #2f2f2f;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
 .item {
   text-align: center;
   width: 100%;
