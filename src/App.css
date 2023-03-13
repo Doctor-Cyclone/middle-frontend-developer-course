@@ -19,11 +19,13 @@
 
 .App-header {
   min-height: 100vh;
+}
 
 .button button:hover {
   transform: scale(1.1);
   transition: all 0.1s linear;
 }
+
 .items {
   display: flex;
   flex-direction: column;
