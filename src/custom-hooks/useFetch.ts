@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-interface Posts {
+interface Post {
 	userId: number;
 	id: number;
 	title: string;
@@ -9,10 +9,10 @@ interface Posts {
 }
 
 interface ReturnedData {
-	data: Posts[],
+	data: Post[],
 	isLoading: boolean;
 	error: unknown;
-	reFetch: (option: Option) => Posts[];
+	reFetch: (option: Option) => Post[];
 }
 
 type Option = {
@@ -21,20 +21,19 @@ type Option = {
 	}
 }
 
-const fetchData = async (url: string, option?: Option) => {
-	const data = await axios.get(url)
-
-	return data.data
+const fetchData = async (url: string, option?: Option): Promise<Post[]> => {
+	const data = await axios.get<Post[]>(option ? `${url}?_limit=${option.params._limit}` : url);
+	return data.data;
 }
 
 const useFetch = (url: string): ReturnedData => {
-	const [data, setData] = useState([]);
+	const [data, setData] = useState<Post[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState();
 
-	const updateData = (fetchUrl: string = url) => {
+	const updateData = (fetchUrl: string = url, option?: Option) => {
 		setIsLoading(true);
-		fetchData(fetchUrl)
+		fetchData(fetchUrl, option)
 		.then(res => setData(res))
 		.catch(error => setError(error))
 		.finally(() => setIsLoading(false));
@@ -45,7 +44,7 @@ const useFetch = (url: string): ReturnedData => {
 	}, [url])
 
 	const reFetch = (option: Option) => {
-		updateData(`${url}?_limit=${option.params._limit}`);
+		updateData(url, option);
 
 		return data;
 	};
