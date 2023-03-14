@@ -5,7 +5,6 @@ const useHover = () => {
 	const ref = useRef(null);
 
 	useEffect(() => {
-		console.log(1)
 			const element = ref.current! as HTMLDivElement;
 
 			if (element) {
