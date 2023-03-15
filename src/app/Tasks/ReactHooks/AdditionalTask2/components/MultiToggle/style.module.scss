@@ -1,5 +1,23 @@
-.container {
-	&__button {
+@import './src/styles/index.scss';
 
+.container {
+	@extend .container;
+	border: none;
+
+	&__content {
+		@extend .content;
+	}
+
+	&__text {
+		@extend .text;
+
+		&_highlight {
+			color: #D56100;
+			font-weight: 500;
+		}
+	}
+
+	&__button {
+		@extend .button;
 	}
 }

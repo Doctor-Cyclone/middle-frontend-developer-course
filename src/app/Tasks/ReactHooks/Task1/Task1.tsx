@@ -9,18 +9,29 @@ const Task_1 = () => {
 
   return (
     <div className={style.container}>
+      <header className={style.container__header}>
+        <h2 className={style.container__title}>- Task 1 -</h2>
+      </header>
       <button
         className={style.container__button}
         onClick={() => reFetch({ params: { _limit: 3 } })}
       >
-        Перезапросить
+        re-REQUEST
       </button>
-      <span>{isLoading && 'Загрузка...'}</span>
-      <span>{error && 'Произошла ошибка'}</span>
-      <div>
+      {isLoading ? (
+        <span className={style.container__loading}>loading...</span>
+      ) : null}
+      {error ? (
+        <span className={style.container__error}>Произошла ошибка</span>
+      ) : null}
+      <div className={style.container__list}>
         {data &&
           !isLoading &&
-          data.map((item) => <div key={item.id}>{item.title}</div>)}
+          data.map((item) => (
+            <div className={style['container__list-item']} key={item.id}>
+              {item.title}
+            </div>
+          ))}
       </div>
     </div>
   );

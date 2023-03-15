@@ -7,15 +7,23 @@ const AdditionalTask1 = () => {
 
   return (
     <div className={style.container}>
-      <p className={style.container__text}>
-        Scroll position x: {position.x}, y: {position.y}
-      </p>
-      <button
-        className={style.container__button}
-        onClick={() => scrollTo({ y: 0 })}
-      >
-        Scroll to top
-      </button>
+      <header className={style.container__header}>
+        <h2 className={style.container__title}>- Additional Task 1 -</h2>
+      </header>
+      <div className={style.container__content}>
+        <button
+          className={style.container__button}
+          onClick={() => scrollTo({ y: 0 })}
+        >
+          Scroll to top
+        </button>
+        <p className={style.container__text}>
+          Scroll position x:{' '}
+          <span className={style.container__text_highlight}>{position.x}</span>,
+          y:{' '}
+          <span className={style.container__text_highlight}>{position.y}</span>
+        </p>
+      </div>
     </div>
   );
 };

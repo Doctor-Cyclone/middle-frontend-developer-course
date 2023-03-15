@@ -1,26 +1,38 @@
 import useToggle from '../../../../../custom-hooks/useToggle';
 import cn from 'classnames';
 // @ts-ignore
-import style from 'src/app/Tasks/ReactHooks/AdditionalTask2/components/ThemeToggle/style.module.scss';
+import style from './style.module.scss';
 
 const ThemeToggle = () => {
-  const [theme, toggleTheme] = useToggle(['dark', 'light']);
+  const [value, toggleTheme] = useToggle(['dark', 'light']);
 
   return (
-    <div className={style.container}>
-      <header
-        className={cn([
-          style.container__head,
-          style[`container__head_${theme}`]
-        ])}
-      >
+    <div className={cn([style.container, style[`container_${value}`]])}>
+      <div className={style.container__content}>
+        <button
+          className={style.container__button}
+          onClick={() => toggleTheme()}
+        >
+          Toggle theme
+        </button>
+        <button
+          className={style.container__button}
+          onClick={() => toggleTheme('light')}
+        >
+          Toggle light theme
+        </button>
         <p className={style.container__text}>
-          Current theme: {theme.toString()}
+          Current value:{' '}
+          <span
+            className={cn([
+              style.container__text_highlight,
+              style[`container__text_highlight_${value}`]
+            ])}
+          >
+            {value.toString()}
+          </span>
         </p>
-      </header>
-      <button className={style.container__button} onClick={() => toggleTheme()}>
-        Toggle theme
-      </button>
+      </div>
     </div>
   );
 };

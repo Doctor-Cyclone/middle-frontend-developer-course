@@ -7,7 +7,19 @@ const Task_4 = () => {
 
   return (
     <div className={style.container}>
-      Width: {width}, height: {height}
+      <header className={style.container__header}>
+        <h2 className={style.container__title}>- Task 4 -</h2>
+      </header>
+      <div className={style.container__content}>
+        <span className={style.container__text}>
+          Width:{' '}
+          <span className={style.container__text_highlight}>{width}</span>
+        </span>
+        <span className={style.container__text}>
+          Height:{' '}
+          <span className={style.container__text_highlight}>{height}</span>
+        </span>
+      </div>
     </div>
   );
 };

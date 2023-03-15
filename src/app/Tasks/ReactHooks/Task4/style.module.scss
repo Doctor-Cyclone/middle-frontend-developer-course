@@ -1,5 +1,28 @@
-.container {
-	&__button {
+@import './src/styles/index.scss';
 
+.container {
+	@extend .container;
+
+	&__header {
+		@extend .header;
+	}
+
+	&__title {
+		@extend .title;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__text {
+		@extend .text;
+
+		&_highlight {
+			color: #D56100;
+			font-weight: 500;
+		}
 	}
 }

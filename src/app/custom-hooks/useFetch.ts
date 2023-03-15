@@ -25,6 +25,7 @@ const fetchData = async (url: string, option?: Option): Promise<Post[]> => {
   const data = await axios.get<Post[]>(
     option ? `${url}?_limit=${option.params._limit}` : url
   );
+
   return data.data;
 };
 

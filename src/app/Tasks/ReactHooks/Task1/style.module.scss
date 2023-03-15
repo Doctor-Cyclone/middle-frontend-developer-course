@@ -1,5 +1,47 @@
-.container {
-	&__button {
+@import './src/styles/index.scss';
 
+.container {
+	@extend .container;
+
+	&__header {
+		@extend .header;
+	}
+
+	&__title {
+		@extend .title;
+	}
+
+	&__button {
+		@extend .button;
+	}
+
+	&__list {
+		margin-top: 15px;
+
+		&-item {
+			margin-bottom: 5px;
+			padding: 0 10px 5px;
+			border-bottom: 1px solid rgba(0, 0, 0, 24%);
+		}
+	}
+
+	&__error {
+		padding: 10px 15px;
+		color: #ffffff;
+		font-weight: 300;
+		letter-spacing: 1px;
+		border-radius: 10px;
+		text-transform: lowercase;
+		background-color: rgba(213, 0, 0, 0.9);
+	}
+
+	&__loading {
+		padding: 10px 15px;
+		color: #ffffff;
+		font-weight: 300;
+		letter-spacing: 1px;
+		border-radius: 10px;
+		text-transform: lowercase;
+		background-color: rgba(213, 178, 0, 0.9);
 	}
 }
