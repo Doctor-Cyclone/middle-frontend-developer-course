@@ -1,0 +1,54 @@
+@import '../../../../styles/index';
+
+.input {
+	padding: 5px 10px;
+	border-radius: 5px;
+	outline: none;
+	background: transparent;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		margin-bottom: 15px;
+	}
+
+	&__label {
+		color: #ffffff;
+		font-size: 18px;
+		font-weight: 200;
+		letter-spacing: 1px;
+
+		&-wrapper {
+
+		}
+
+		&-asterisk {
+
+		}
+	}
+
+	&__description {
+		color: rgba(255, 255, 255, 0.4);
+		font-size: 15px;
+	}
+
+	&__error {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		&-text {
+			font-size: 14px;
+			font-weight: 400;
+			color: rgba(255, 98, 98, 90%);
+			letter-spacing: 1px;
+		}
+
+		&-icon {
+			width: 20px;
+		}
+	}
+}

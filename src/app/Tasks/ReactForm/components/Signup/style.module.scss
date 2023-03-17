@@ -1,0 +1,25 @@
+@import './src/styles/index.scss';
+
+.signup {
+	max-width: 400px;
+	padding: 20px;
+	border-radius: 16px;
+	background-color: #005B5B;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+
+	&__title {
+		margin-bottom: 25px;
+		font-size: 32px;
+		font-weight: 200;
+		text-align: center;
+		color: #ffffff;
+	}
+
+	&__form {
+		&-gender {
+			display: flex;
+			gap: 15px;
+			margin-bottom: 15px;
+		}
+	}
+}
