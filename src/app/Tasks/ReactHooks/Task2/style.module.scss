@@ -1,0 +1,37 @@
+@import './src/styles/index.scss';
+
+.container {
+	@extend .container;
+
+	&__header {
+		@extend .header;
+	}
+
+	&__title {
+		@extend .title;
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__text {
+		@extend .text;
+
+		&_highlight {
+			color: #D56100;
+			font-weight: 500;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		gap: 15px;
+	}
+
+	&__button {
+		@extend .button;
+	}
+}

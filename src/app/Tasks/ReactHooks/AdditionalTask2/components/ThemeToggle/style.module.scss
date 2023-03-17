@@ -1,0 +1,36 @@
+@import './src/styles/index.scss';
+
+.container {
+	@extend .container;
+	border-radius: 10px;
+	border: none;
+
+	&_dark {
+		background-color: #005b5b;
+	}
+
+	&_light {
+		background-color: #009f9f;
+	}
+
+	&__content {
+		@extend .content;
+	}
+
+	&__text {
+		@extend .text;
+
+		&_highlight {
+			color: #D56100;
+			font-weight: 500;
+
+			&_light {
+				color: #000000;
+			}
+		}
+	}
+
+	&__button {
+		@extend .button;
+	}
+}

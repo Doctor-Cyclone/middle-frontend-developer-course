@@ -1,0 +1,21 @@
+@import './src/styles/index.scss';
+
+.container {
+	@extend .container;
+
+	&__header {
+		@extend .header;
+	}
+
+	&__title {
+		@extend .title;
+	}
+
+	&__content {
+		@extend .content;
+	}
+
+	&__button {
+		@extend .button;
+	}
+}
