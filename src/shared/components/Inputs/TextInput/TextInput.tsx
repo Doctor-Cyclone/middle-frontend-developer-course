@@ -3,19 +3,9 @@ import { FunctionComponent } from 'react';
 import style from './style.module.scss';
 import cn from 'classnames';
 
-type BorderRadius = {
-  none: string;
-  s: string;
-  m: string;
-  l: string;
-  xl: string;
-};
+type BorderRadius = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
-type Size = {
-  s: string;
-  m: string;
-  l: string;
-};
+type Size = 's' | 'm' | 'l';
 
 interface InputProps {
   type: string;
@@ -39,8 +29,8 @@ const TextInput: FunctionComponent<InputProps> = ({
   value,
   description,
   error,
-  borderRadius = 'm',
-  size = 'm',
+  borderRadius = 'xs',
+  size = 's',
   disabled,
   withAsterisk
 }) => {
@@ -71,6 +61,7 @@ const TextInput: FunctionComponent<InputProps> = ({
         name={name}
         placeholder={placeholder}
         disabled={disabled}
+        required={withAsterisk}
       />
       {error && (
         <div className={style.input__error}>

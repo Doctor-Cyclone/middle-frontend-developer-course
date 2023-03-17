@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react';
 import style from './style.module.scss';
 import TextInput from '../../../../../shared/components/Inputs/TextInput/TextInput';
 import RadioInput from '../../../../../shared/components/Inputs/RadioInput/RadioInput';
+import cn from 'classnames';
 
 const Signup: FunctionComponent = () => {
   return (
@@ -27,9 +28,14 @@ const Signup: FunctionComponent = () => {
           label="Email"
           placeholder="Enter your email"
         />
-        <div className={style['signup__form-gender']}>
-          <RadioInput name="gender" label="Male" />
-          <RadioInput name="gender" label="Female" />
+        <div>
+          <span className={style['signup__form-gender-title']}>
+            Choose your gender
+          </span>
+          <div className={style['signup__form-gender']}>
+            <RadioInput name="gender" label="Male" />
+            <RadioInput name="gender" label="Female" />
+          </div>
         </div>
         <TextInput
           type="password"
@@ -43,7 +49,11 @@ const Signup: FunctionComponent = () => {
           label="Password"
           placeholder="Repeat your password"
         />
-        <button type="submit">Registration</button>
+        <div className={style['signup__button-wrapper']}>
+          <button className={cn([style.signup__button])} type="submit">
+            Registration
+          </button>
+        </div>
       </form>
     </div>
   );
