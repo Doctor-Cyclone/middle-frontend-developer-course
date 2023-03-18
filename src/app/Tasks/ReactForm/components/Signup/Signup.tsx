@@ -39,15 +39,6 @@ const Signup: FunctionComponent<{
     onSubmit(userDataRef.current);
   };
 
-  const disabledButton = () =>
-    !(
-      userDataRef.current.email &&
-      userDataRef.current.password &&
-      userDataRef.current.name &&
-      userDataRef.current.gender &&
-      userDataRef.current.nickname
-    );
-
   return (
     <div className={style.signup}>
       <h3 className={style.signup__title}>Signup</h3>
@@ -99,11 +90,7 @@ const Signup: FunctionComponent<{
           <button
             className={cn([style.signup__button])}
             type="submit"
-            onClick={(event) => {
-              handleSubmit(event);
-              console.log(disabledButton());
-            }}
-            disabled={!disabledButton()}
+            onClick={(event) => handleSubmit(event)}
           >
             SignUp
           </button>
