@@ -18,6 +18,12 @@
 		flex-direction: column;
 		gap: 5px;
 		margin-bottom: 15px;
+
+		&-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 	}
 
 	&__label {
@@ -39,7 +45,8 @@
 	}
 
 	&__description {
-		color: rgba(255, 255, 255, 0.4);
+		margin-right: 5px;
+		color: rgba(255, 255, 255, 0.2);
 		font-size: 15px;
 	}
 

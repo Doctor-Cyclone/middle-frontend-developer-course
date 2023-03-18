@@ -36,20 +36,22 @@ const TextInput: FunctionComponent<InputProps> = ({
 }) => {
   return (
     <div className={style.input__container}>
-      <label className={style['input__label-wrapper']} htmlFor={name}>
-        <span
-          className={
-            !withAsterisk
-              ? style.input__label
-              : cn([style.input__label, style['input__label-asterisk']])
-          }
-        >
-          {label}
-        </span>
-      </label>
-      {description && (
-        <span className={style.input__description}>{description}</span>
-      )}
+      <div className={style['input__container-top']}>
+        <label className={style['input__label-wrapper']} htmlFor={name}>
+          <span
+            className={
+              !withAsterisk
+                ? style.input__label
+                : cn([style.input__label, style['input__label-asterisk']])
+            }
+          >
+            {label}
+          </span>
+        </label>
+        {description && (
+          <span className={style.input__description}>{description}</span>
+        )}
+      </div>
       <input
         className={cn([
           style.input,

@@ -75,6 +75,9 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
             className={cn([style.signin__button])}
             type="submit"
             onClick={(event) => handleSubmit(event)}
+            disabled={
+              !userDataRef.current.password && !userDataRef.current.email
+            }
           >
             SignIn
           </button>

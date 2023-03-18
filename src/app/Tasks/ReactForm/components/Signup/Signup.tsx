@@ -1,4 +1,4 @@
-import { FormEvent, FunctionComponent, useRef, useState } from 'react';
+import { FormEvent, FunctionComponent, useRef } from 'react';
 // @ts-ignore
 import style from '../../style.module.scss';
 import TextInput from '../../../../../shared/components/Inputs/TextInput/TextInput';
@@ -38,6 +38,15 @@ const Signup: FunctionComponent<{
     setItem(userDataRef.current);
     onSubmit(userDataRef.current);
   };
+
+  const disabledButton = () =>
+    !(
+      userDataRef.current.email &&
+      userDataRef.current.password &&
+      userDataRef.current.name &&
+      userDataRef.current.gender &&
+      userDataRef.current.nickname
+    );
 
   return (
     <div className={style.signup}>
@@ -90,7 +99,11 @@ const Signup: FunctionComponent<{
           <button
             className={cn([style.signup__button])}
             type="submit"
-            onClick={(event) => handleSubmit(event)}
+            onClick={(event) => {
+              handleSubmit(event);
+              console.log(disabledButton());
+            }}
+            disabled={!disabledButton()}
           >
             SignUp
           </button>
