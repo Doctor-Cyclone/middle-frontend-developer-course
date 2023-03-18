@@ -1,6 +1,88 @@
-.container {
+@import './src/styles/index.scss';
+
+.reactForm {
+	display: flex;
+	justify-content: center;
 	margin-bottom: 100px;
 	padding: 30px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 	border-radius: 20px;
+}
+
+.signup, .signin {
+	height: fit-content;
+	max-width: 400px;
+	width: 100%;
+	padding: 20px;
+	border-radius: 16px;
+	background-color: #005B5B;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+
+	&__title {
+		margin-bottom: 25px;
+		font-size: 32px;
+		font-weight: 200;
+		text-align: center;
+		color: #ffffff;
+	}
+
+	&__form {
+		&-gender {
+			display: flex;
+			gap: 20px;
+			margin-bottom: 15px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			border: 1px solid rgba(0, 0, 0, 0.3);
+
+			&-title {
+				display: block;
+				margin-bottom: 10px;
+				color: #ffffff;
+				font-size: 18px;
+				font-weight: 200;
+				letter-spacing: 1px;
+			}
+		}
+	}
+
+	&__button {
+		width: 150px;
+		padding: 10px;
+		background: #61e141;
+		border: 1px solid rgba(0, 0, 0, 0.4);
+		border-radius: 5px;
+		letter-spacing: 1px;
+		cursor: pointer;
+		transition: all 0.1s ease-out;
+
+		&:hover {
+			transform: translateY(-5px) scale(1.05);
+			transition: all 0.1s ease-out;
+			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+		}
+
+		&:active {
+			transform: translateY(-3px) scale(1);
+			transition: all 0.1s ease-out;
+			box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		&-disabled {
+			opacity: 0.6;
+			cursor: default;
+
+			&:hover {
+				transform: none;
+				transition: all 0.1s ease-out;
+				box-shadow: none;
+			}
+		}
+
+		&-wrapper {
+			display: flex;
+			justify-content: center;
+			margin-top: 30px;
+		}
+	}
 }

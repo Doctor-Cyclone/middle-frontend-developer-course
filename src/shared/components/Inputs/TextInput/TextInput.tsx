@@ -70,7 +70,7 @@ const TextInput: FunctionComponent<InputProps> = ({
             src="./caution.png"
             alt="Error"
           />
-          <span className={style['input__error-text']}>enter name</span>
+          <span className={style['input__error-text']}>{error}</span>
         </div>
       )}
     </div>

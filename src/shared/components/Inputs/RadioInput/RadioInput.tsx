@@ -24,6 +24,7 @@ const RadioInput: FunctionComponent<InputProps> = ({
           type="radio"
           name={name}
           disabled={disabled}
+          value={label.toLowerCase()}
         />
         <span className={style.input__label}>{label}</span>
       </label>
