@@ -11,6 +11,8 @@ const initialUserData: UserData = {
   password: ''
 };
 
+type UserDataKey = keyof UserData;
+
 interface SigninProps {
   onSubmit: (data: UserData, isCorrectEnterData: boolean) => void;
 }
@@ -20,19 +22,17 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
     initialUserData,
     'userDataKey'
   );
-  const userDataRef = useRef(initialUserData);
+  const userDataRef = useRef<UserData>(initialUserData);
   const [error, setError] = useState('');
 
   const handleChange = (event: FormEvent<HTMLFormElement>) => {
     const target = event.target as HTMLInputElement;
 
-    userDataRef.current = {
-      ...userDataRef.current,
-      [target.name]: target.value
-    };
+    userDataRef.current[target.name as UserDataKey] = target.value;
   };
 
-  const handleSubmit = (event: FormEvent<HTMLButtonElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    console.log(0);
     event.preventDefault();
 
     const { password, email } = getItem(initialUserData, 'userDataKey');
@@ -41,11 +41,18 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
       password === userDataRef.current.password &&
       email === userDataRef.current.email
     ) {
+      console.log(1);
       onSubmit(userDataRef.current, true);
     } else {
+      console.log(2);
       onSubmit(userDataRef.current, false);
       setError('Incorrect email or password');
     }
+    console.log(3);
+  };
+
+  const handleError = () => {
+    console.log('Error');
   };
 
   return (
@@ -54,7 +61,8 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
       <form
         className={style.signin__form}
         onChange={handleChange}
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
+        onError={handleError}
       >
         <TextInput
           type="email"
@@ -74,7 +82,7 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
           <button
             className={cn([style.signin__button])}
             type="submit"
-            onClick={(event) => handleSubmit(event)}
+            // onClick={(event) => handleSubmit(event)}
           >
             SignIn
           </button>

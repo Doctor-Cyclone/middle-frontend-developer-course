@@ -31,7 +31,7 @@ const ReactForm: FunctionComponent = () => {
     <section className={style.reactForm}>
       {isEnter ? (
         <h3>You are logged in to your account</h3>
-      ) : isRegistered ? (
+      ) : !isRegistered ? (
         <Signin onSubmit={onSigninSubmit} />
       ) : (
         <Signup onSubmit={onSignupSubmit} />

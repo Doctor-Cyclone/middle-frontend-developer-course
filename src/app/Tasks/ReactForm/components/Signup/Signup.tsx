@@ -33,7 +33,7 @@ const Signup: FunctionComponent<{
     };
   };
 
-  const handleSubmit = (event: FormEvent<HTMLButtonElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setItem(userDataRef.current);
     onSubmit(userDataRef.current);
@@ -44,7 +44,7 @@ const Signup: FunctionComponent<{
       <h3 className={style.signup__title}>Signup</h3>
       <form
         className={style.signup__form}
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         onChange={handleChange}
       >
         <TextInput
@@ -67,9 +67,7 @@ const Signup: FunctionComponent<{
           placeholder="Enter your email"
         />
         <div>
-          <span className={style['signup__form-gender-title']}>
-            Choose your gender
-          </span>
+          <span className={style['signup__form-gender-title']}>Gender</span>
           <div className={style['signup__form-gender']}>
             <RadioInput name="gender" label="Male" />
             <RadioInput name="gender" label="Female" />
@@ -91,7 +89,7 @@ const Signup: FunctionComponent<{
           <button
             className={cn([style.signup__button])}
             type="submit"
-            onClick={(event) => handleSubmit(event)}
+            // onClick={(event) => handleSubmit(event)}
           >
             SignUp
           </button>
