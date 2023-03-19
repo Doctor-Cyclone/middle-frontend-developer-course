@@ -32,7 +32,6 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    console.log(0);
     event.preventDefault();
 
     const { password, email } = getItem(initialUserData, 'userDataKey');
@@ -48,11 +47,6 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
       onSubmit(userDataRef.current, false);
       setError('Incorrect email or password');
     }
-    console.log(3);
-  };
-
-  const handleError = () => {
-    console.log('Error');
   };
 
   return (
@@ -62,7 +56,6 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
         className={style.signin__form}
         onChange={handleChange}
         onSubmit={handleSubmit}
-        onError={handleError}
       >
         <TextInput
           type="email"

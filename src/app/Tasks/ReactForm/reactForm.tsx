@@ -3,7 +3,6 @@ import { FunctionComponent, useState } from 'react';
 import style from './style.module.scss';
 import Signup from './components/Signup/Signup';
 import Signin from './components/Signin/Signin';
-import useLocalStorage from '../../custom-hooks/useLocalStorage';
 
 export interface UserData {
   name?: string;
