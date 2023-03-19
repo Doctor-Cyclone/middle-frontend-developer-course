@@ -19,6 +19,7 @@ interface InputProps {
   size?: Size;
   disabled?: boolean;
   withAsterisk?: boolean;
+  withIcon?: boolean;
 }
 
 const TextInput: FunctionComponent<InputProps> = ({
@@ -32,7 +33,8 @@ const TextInput: FunctionComponent<InputProps> = ({
   borderRadius = 'xs',
   size = 's',
   disabled,
-  withAsterisk
+  withAsterisk,
+  withIcon
 }) => {
   return (
     <div className={style.input__container}>
@@ -52,19 +54,27 @@ const TextInput: FunctionComponent<InputProps> = ({
           <span className={style.input__description}>{description}</span>
         )}
       </div>
-      <input
+      <div
         className={cn([
-          style.input,
-          style[`input_border-${borderRadius}`],
-          style[`input_size-${size}`]
+          style.input__wrapper,
+          style[`input__wrapper_border-${borderRadius}`],
+          style[`input__wrapper_size-${size}`]
         ])}
-        value={value}
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        disabled={disabled}
-        required={withAsterisk}
-      />
+      >
+        {withIcon && (
+          <img className={style.input__icon} src="./user.png" alt="User" />
+        )}
+        <input
+          className={style.input}
+          value={value}
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          disabled={disabled}
+          required={withAsterisk}
+        />
+      </div>
+
       {error && (
         <div className={style.input__error}>
           <img

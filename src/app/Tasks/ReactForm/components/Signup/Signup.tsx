@@ -58,6 +58,7 @@ const Signup: FunctionComponent<{
           name="nickname"
           label="Nickname"
           placeholder="Enter your nickname"
+          withIcon
         />
         <TextInput
           type="email"

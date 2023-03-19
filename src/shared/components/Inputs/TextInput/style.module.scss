@@ -3,14 +3,57 @@
 .input {
 	outline: none;
 	background: transparent;
-	border: 1px solid rgba(0, 0, 0, 0.3);
+	border: none;
 	color: #ffffff;
-	transition: all 0.1s ease-out;
 
-	&:hover {
-		transform: translateY(-3px) scale(1.02);
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		border: 1px solid rgba(0, 0, 0, 0.3);
 		transition: all 0.1s ease-out;
-		box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+
+		&:hover {
+			transform: translateY(-3px) scale(1.02);
+			transition: all 0.1s ease-out;
+			box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+		}
+
+		&_border {
+			&-none {
+				border-radius: 0;
+			}
+			&-xs {
+				border-radius: 5px;
+			}
+			&-s {
+				border-radius: 10px;
+			}
+			&-m {
+				border-radius: 20px;
+			}
+			&-l {
+				border-radius: 30px;
+			}
+			&-xl {
+				border-radius: 40px;
+			}
+		}
+
+		&_size {
+			&-s {
+				padding: 5px 10px;
+			}
+			&-m {
+				padding: 10px 15px;
+			}
+			&-l {
+				padding: 15px 20px;
+			}
+		}
+	}
+
+	&__icon {
 	}
 
 	&__container {
@@ -64,39 +107,6 @@
 
 		&-icon {
 			width: 20px;
-		}
-	}
-
-	&_border {
-		&-none {
-			border-radius: 0;
-		}
-		&-xs {
-			border-radius: 5px;
-		}
-		&-s {
-			border-radius: 10px;
-		}
-		&-m {
-			border-radius: 20px;
-		}
-		&-l {
-			border-radius: 30px;
-		}
-		&-xl {
-			border-radius: 40px;
-		}
-	}
-
-	&_size {
-		&-s {
-			padding: 5px 10px;
-		}
-		&-m {
-			padding: 10px 15px;
-		}
-		&-l {
-			padding: 15px 20px;
 		}
 	}
 }
