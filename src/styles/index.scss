@@ -4,13 +4,17 @@ body {
 }
 
 #root {
-  max-width: 1440px;
-  margin: 0 auto;
+
+}
+
+a {
+  color: #FFFFFF;
 }
 
 .container {
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 30px;
-  border-radius: 20px 20px 0 0;
   background-color: #007272;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
@@ -27,7 +31,7 @@ body {
    justify-content: center;
    margin-bottom: 25px;
    text-align: center;
- }
+}
 
 .title {
    font-weight: 300;
@@ -59,5 +63,11 @@ body {
     cursor: pointer;
     background-color: #b65000;
     transition: all 0.1s linear;
+  }
+}
+
+.header__link {
+  &_active {
+    color: #e97b24;
   }
 }

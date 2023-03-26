@@ -1,0 +1,51 @@
+@import 'src/styles/index';
+
+.episodes {
+	&__container {
+		@extend .container;
+	}
+
+	&__title {
+		@extend .title;
+		margin: 0 auto 25px auto;
+		text-align: center;
+	}
+
+	&__list {
+		display: flex;
+		gap: 25px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&__episode {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		border: 1px solid rgba(0, 0, 0, 0.4);
+		white-space: nowrap;
+		transition: all 0.1s ease-out;
+
+		&:hover {
+			transform: translateY(-5px) scale(1.1);
+			transition: all 0.1s ease-out;
+			cursor: pointer;
+			border: 1px solid #25ce0b;
+			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+		}
+
+		&-info {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 100%;
+			gap: 15px;
+
+			&_colored {
+				color: #418ce1;
+			}
+		}
+	}
+}
