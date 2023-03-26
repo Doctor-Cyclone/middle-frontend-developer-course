@@ -10,14 +10,14 @@ import style from './style.module.scss';
 
 const ReactHooks = () => {
   return (
-    <div className={style.container}>
+    <section className={style.container}>
       <AdditionalTask2 />
       <AdditionalTask1 />
       <Task4 />
       <Task3 />
       <Task2 />
       <Task1 />
-    </div>
+    </section>
   );
 };
 

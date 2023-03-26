@@ -1,0 +1,113 @@
+@import '../../../../styles/index';
+
+.input {
+	width: 100%;
+	outline: none;
+	background: transparent;
+	border: none;
+	color: #ffffff;
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		transition: all 0.1s ease-out;
+
+		&:hover {
+			transform: translateY(-3px) scale(1.02);
+			transition: all 0.1s ease-out;
+			box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+		}
+
+		&_border {
+			&-none {
+				border-radius: 0;
+			}
+			&-xs {
+				border-radius: 5px;
+			}
+			&-s {
+				border-radius: 10px;
+			}
+			&-m {
+				border-radius: 20px;
+			}
+			&-l {
+				border-radius: 30px;
+			}
+			&-xl {
+				border-radius: 40px;
+			}
+		}
+
+		&_size {
+			&-s {
+				padding: 5px 10px;
+			}
+			&-m {
+				padding: 10px 15px;
+			}
+			&-l {
+				padding: 15px 20px;
+			}
+		}
+	}
+
+	&__icon {
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		margin-bottom: 15px;
+
+		&-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&__label {
+		position: relative;
+		margin-left: 5px;
+		color: #ffffff;
+		font-size: 18px;
+		font-weight: 200;
+		letter-spacing: 1px;
+
+		&-asterisk:after {
+			position: absolute;
+			content: '*';
+			top: 0;
+			right: -14px;
+			font-size: 22px;
+			color: red;
+		}
+	}
+
+	&__description {
+		margin-right: 5px;
+		color: rgba(255, 255, 255, 0.2);
+		font-size: 15px;
+	}
+
+	&__error {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		&-text {
+			font-size: 14px;
+			font-weight: 400;
+			color: rgba(255, 98, 98, 90%);
+			letter-spacing: 1px;
+		}
+
+		&-icon {
+			width: 20px;
+		}
+	}
+}

@@ -18,12 +18,12 @@ const Task_1 = () => {
       >
         re-REQUEST
       </button>
-      {isLoading ? (
+      {isLoading && (
         <span className={style.container__loading}>loading...</span>
-      ) : null}
-      {error ? (
+      )}
+      {error && (
         <span className={style.container__error}>Произошла ошибка</span>
-      ) : null}
+      )}
       <div className={style.container__list}>
         {data &&
           !isLoading &&

@@ -1,37 +1,47 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
-const getItem = <T>(initialData: T, key: string) => {
-	const stringifyItem = localStorage.getItem(key);
-
-	if (stringifyItem) {
-		return JSON.parse(stringifyItem);
-	}
-
-	if(initialData instanceof Function) {
-		return initialData();
-	}
-
-	return initialData;
+interface ReturnedFunction<T> {
+  setItem: (newItem: T) => void;
+  getItem: (initialData: T, key: string) => T;
+  removeItem: () => void;
 }
 
-const useLocalStorage = <T>(initialData: T, key: string) => {
-	const [data, setData] = useState(() => getItem(initialData, key));
+// TODO refactor useLocalStorage logic
+const useLocalStorage = <T>(
+  initialData: T,
+  key: string
+): [T, ReturnedFunction<T>] => {
+  const getItem = <T>(initialData: T, key: string) => {
+    const stringifyItem = localStorage.getItem(key);
 
-	useEffect(() => {
-		setData(getItem(initialData, key));
-	}, [])
+    if (stringifyItem) {
+      return JSON.parse(stringifyItem);
+    }
 
-	const setItem = <T>(newItem: T) => {
-		localStorage.setItem(key, JSON.stringify(newItem))
-		setData(newItem);
-	}
+    if (initialData instanceof Function) {
+      return initialData();
+    }
 
-	const removeItem = () => {
-		localStorage.removeItem(key);
-		setData('');
-	}
+    return initialData;
+  };
 
-	return [data, {setItem, removeItem}];
-}
+  const [data, setData] = useState<T>(() => getItem(initialData, key));
+
+  useEffect(() => {
+    setData(getItem(initialData, key));
+  }, []);
+
+  const setItem = (newItem: T) => {
+    localStorage.setItem(key, JSON.stringify(newItem));
+    setData(newItem);
+  };
+
+  const removeItem = () => {
+    localStorage.removeItem(key);
+    setData(initialData);
+  };
+
+  return [data, { setItem, getItem, removeItem }];
+};
 
 export default useLocalStorage;
