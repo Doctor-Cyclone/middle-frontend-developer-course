@@ -1,1 +1,7 @@
 @import 'src/styles/index';
+
+.component__title {
+	@extend .title;
+	margin: 0 auto 25px auto;
+	text-align: center;
+}
