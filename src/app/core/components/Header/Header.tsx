@@ -1,12 +1,10 @@
 import { NavLink } from 'react-router-dom';
 // @ts-ignore
 import style from './style.module.scss';
-import { CSSProperties } from 'react';
+import { useIsAuth } from '../../../context/Auth/AuthContext';
 
 const Header = () => {
-  const activeMenuLink = (isActive: boolean): CSSProperties | undefined => {
-    return isActive ? { color: 'red' } : {};
-  };
+  const { user, signOut } = useIsAuth();
 
   return (
     <header className={style.header}>
@@ -23,44 +21,48 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-            <li className={style['header__list-item']}>
+            {user.isAuth ? (
+              <>
+                <li className={style['header__list-item']}>
+                  <NavLink
+                    to="/characters"
+                    className={({ isActive }) =>
+                      isActive ? 'header__link_active' : 'header__link'
+                    }
+                  >
+                    Characters
+                  </NavLink>
+                </li>
+                <li className={style['header__list-item']}>
+                  <NavLink
+                    to="/locations"
+                    className={({ isActive }) =>
+                      isActive ? 'header__link_active' : 'header__link'
+                    }
+                  >
+                    Locations
+                  </NavLink>
+                </li>
+                <li className={style['header__list-item']}>
+                  <NavLink
+                    to="/episodes"
+                    className={({ isActive }) =>
+                      isActive ? 'header__link_active' : 'header__link'
+                    }
+                  >
+                    Episodes
+                  </NavLink>
+                </li>
+              </>
+            ) : null}
+            <li className={style['header__list-item']} onClick={signOut}>
               <NavLink
-                to="/characters"
+                to="/signIn"
                 className={({ isActive }) =>
                   isActive ? 'header__link_active' : 'header__link'
                 }
               >
-                Characters
-              </NavLink>
-            </li>
-            <li className={style['header__list-item']}>
-              <NavLink
-                to="/locations"
-                className={({ isActive }) =>
-                  isActive ? 'header__link_active' : 'header__link'
-                }
-              >
-                Locations
-              </NavLink>
-            </li>
-            <li className={style['header__list-item']}>
-              <NavLink
-                to="/episodes"
-                className={({ isActive }) =>
-                  isActive ? 'header__link_active' : 'header__link'
-                }
-              >
-                Episodes
-              </NavLink>
-            </li>
-            <li className={style['header__list-item']}>
-              <NavLink
-                to="/previousHomeWork"
-                className={({ isActive }) =>
-                  isActive ? 'header__link_active' : 'header__link'
-                }
-              >
-                Prev. HomeWork's
+                {user.isAuth ? 'Sign Out' : 'Sign In'}
               </NavLink>
             </li>
           </ul>
