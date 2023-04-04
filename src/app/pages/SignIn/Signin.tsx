@@ -1,10 +1,12 @@
 import { FormEvent, FunctionComponent, useRef, useState } from 'react';
 // @ts-ignore
-import style from '../../style.module.scss';
-import TextInput from '../../../../../shared/components/Inputs/TextInput/TextInput';
+import style from './style.module.scss';
+import TextInput from '../../../shared/components/Inputs/TextInput/TextInput';
 import cn from 'classnames';
-import { UserData } from '../../reactForm';
-import useLocalStorage from '../../../../custom-hooks/useLocalStorage';
+import { UserData } from '../../Tasks/ReactForm/reactForm';
+import useLocalStorage from '../../custom-hooks/useLocalStorage';
+import { useIsAuth } from '../../context/Auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const initialUserData: UserData = {
   email: '',
@@ -13,11 +15,9 @@ const initialUserData: UserData = {
 
 type UserDataKey = keyof UserData;
 
-interface SigninProps {
-  onSubmit: (data: UserData, isCorrectEnterData: boolean) => void;
-}
-
-const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
+const Signin: FunctionComponent = () => {
+  const { signIn } = useIsAuth();
+  const navigate = useNavigate();
   const [userData, { getItem }] = useLocalStorage<UserData>(
     initialUserData,
     'userDataKey'
@@ -40,11 +40,9 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
       password === userDataRef.current.password &&
       email === userDataRef.current.email
     ) {
-      console.log(1);
-      onSubmit(userDataRef.current, true);
+      signIn();
+      navigate('/');
     } else {
-      console.log(2);
-      onSubmit(userDataRef.current, false);
       setError('Incorrect email or password');
     }
   };
@@ -72,11 +70,7 @@ const Signin: FunctionComponent<SigninProps> = ({ onSubmit }) => {
           error={error && error}
         />
         <div className={style['signin__button-wrapper']}>
-          <button
-            className={cn([style.signin__button])}
-            type="submit"
-            // onClick={(event) => handleSubmit(event)}
-          >
+          <button className={cn([style.signin__button])} type="submit">
             SignIn
           </button>
         </div>

@@ -1,0 +1,66 @@
+@import 'src/styles/index';
+
+.characters {
+	&__container {
+		@extend .container;
+
+	}
+
+	&__title {
+		@extend .title;
+		margin: 0 auto 25px auto;
+		text-align: center;
+	}
+
+	&__list {
+		display: flex;
+		gap: 25px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&__character {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		max-width: 222px;
+		overflow: hidden;
+		padding: 10px;
+		border: 1px solid rgba(0, 0, 0, 0.4);
+		white-space: nowrap;
+
+		&-info {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			margin-top: 10px;
+		}
+
+		&-name {
+
+		}
+
+		&-status {
+			color: #ffffff;
+
+			&_dead {
+				color: #b00a0a;
+			}
+			&_alive {
+				color: #25ce0b;
+			}
+		}
+
+		&-image {
+			max-width: 200px;
+			transition: all 0.1s ease-out;
+
+			&:hover {
+				transform: translateY(5px) scale(0.95);
+				transition: all 0.1s ease-out;
+				cursor: pointer;
+			}
+		}
+	}
+}
